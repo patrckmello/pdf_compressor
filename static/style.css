@@ -149,6 +149,30 @@ main {
     transition: transform 0.3s ease;
 }
 
+#error-message {
+    display: none;
+    background-color: #f44336;
+    color: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    animation: slide-in 0.5s ease-out;
+}
+
+#error-message2 {
+    display: none;
+    background-color: #f44336;
+    color: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    animation: slide-in 0.5s ease-out;
+}
+
 .compression-menu {
     position: fixed;
     top: 0;
@@ -272,18 +296,6 @@ main {
     color: #ff0000;
 }
 
-.error-message {
-    display: none;
-    background-color: #f44336;
-    color: white;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 5px;
-    font-size: 16px;
-    text-align: center;
-    animation: slide-in 0.5s ease-out;
-}
-
 @keyframes slide-in {
     from {
         transform: translateY(-100%);
@@ -306,9 +318,28 @@ main {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+#report {
+  font-family: "Poppins", sans-serif;  
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+}
+
+.clickable {
+    cursor: pointer;
+    text-decoration: none;
+    color: #666; 
+}
+
+.clickable:visited {
+    color: #666;
+}
+  
 footer {
+    align-items: center;
     text-align: center;
     margin-top: 40px;
     color: #666;
     font-size: 14px;
+    gap: 10px;
 }

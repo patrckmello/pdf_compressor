@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compressor de PDF</title>
-    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/zg2.png') }}">
+    <link rel="shortcut icon" href="http://10.1.3.113/intranet/wp-content/themes/zavagnagralha/assets/img/favicon.ico">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -39,8 +39,11 @@
         </div>
 
         <div id="status-message" style="display: none;"></div>
-
+        <div id="error-message2" class="error-message2" style="display: none;">
+            Nenhum arquivo selecionado! Por favor, selecione um arquivo antes de escolher o modo de compressão.
+        </div>
         <button id="compress-btn" onclick="openCompressionMenu()">Selecionar modo de compressão</button>
+       
 
         <!-- Menu lateral para selecionar modo de compressão -->
         <div class="compression-menu" id="compressionMenu">
@@ -67,7 +70,9 @@
     </main>
 
     <footer>
-        <p>&copy;TI Zavagna Gralha - 2025</p>
+        <span>&copy;TI Zavagna Gralha - 2025</span> 
+        <span>|</span>
+        <span><a class="clickable" href="http://10.1.9.3/glpi/front/ticket.form.php" target="_blank">Reporte um problema</a></span>
     </footer>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>

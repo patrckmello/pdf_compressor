@@ -11,6 +11,8 @@ const startButton = document.getElementById('start-compression');
 const progressContainer = document.getElementById('progress-container');
 const progressBar = document.getElementById('progress-bar');
 const statusMessage = document.getElementById('status-message');
+const errorMessage = document.getElementById('error-message');
+const errorMessage2 = document.getElementById('error-message2');  // Div de erro
 
 // Adiciona evento de clique para o drop-zone, que abre o seletor de arquivos
 dropZone.addEventListener('click', () => fileInput.click());
@@ -32,7 +34,6 @@ dropZone.addEventListener('drop', (e) => {
 // Processa o arquivo selecionado
 function handleFiles(files) {
     const file = files[0];
-    const errorMessage = document.getElementById("error-message");
     const previewContainer = document.getElementById("pdf-preview-container");
     const pdfCanvas = document.getElementById("pdf-canvas");
     const pdfInfo = document.getElementById("pdf-info");
@@ -43,6 +44,7 @@ function handleFiles(files) {
 
         // Oculta mensagem de erro
         if (errorMessage) errorMessage.style.display = "none";
+        if (errorMessage2) errorMessage2.style.display = "none";
 
         // Mostra container de preview
         previewContainer.style.display = "block";
@@ -201,7 +203,10 @@ closeBtn.addEventListener('click', closeCompressionMenu);
 // Abrir menu quando botão principal for clicado
 document.addEventListener('DOMContentLoaded', () => {
     compressBtn.addEventListener('click', () => {
-        if (selectedFile) {
+        if (!selectedFile) {
+            // Se nenhum arquivo for selecionado, exibe a mensagem de erro
+            if (errorMessage2) errorMessage2.style.display = "block";
+        } else {
             openCompressionMenu();
         }
     });
