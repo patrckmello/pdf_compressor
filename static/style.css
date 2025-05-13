@@ -1,0 +1,314 @@
+:root {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f2f4f8;
+    color: #333;
+}
+
+header {
+    background: #000000;
+    padding: 20px 40px;
+    color: white;
+    position: relative;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 100px;
+}
+
+.logo {
+    position: absolute;
+    left: 0;
+    height: 100px;
+}
+
+.title {
+    margin: 0;
+    font-size: 38px;
+}
+
+main {
+    max-width: 600px;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.upload-box {
+    margin-bottom: 20px;
+}
+
+#compress-btn {
+    font-family: 'Poppins', sans-serif;
+    background: #198754;
+    color: white;
+    padding: 14px 28px;
+    border: none;
+    margin-top: 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#compress-btn:hover {
+    background: #146c43;
+}
+
+#file-name {
+    margin-top: 10px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+#progress-container {
+    width: 100%;
+    background-color: #f3f3f3;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+#progress-bar {
+    height: 10px;
+    width: 0;
+    background-color: #4caf50;
+    border-radius: 5px;
+}
+
+#status-message {
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+#drop-zone {
+    position: relative;
+    padding: 40px;
+    text-align: center;
+    min-height: 40px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+    align-items: center;
+    overflow: hidden;
+}
+
+#drop-zone::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border: 2px dashed transparent;
+    border-radius: 10px;
+    background:
+        linear-gradient(90deg, #4a90e2 50%, transparent 50%) repeat-x,
+        linear-gradient(90deg, #4a90e2 50%, transparent 50%) repeat-x,
+        linear-gradient(0deg, #4a90e2 50%, transparent 50%) repeat-y,
+        linear-gradient(0deg, #4a90e2 50%, transparent 50%) repeat-y;
+    background-size: 10px 2px, 10px 2px, 2px 10px, 2px 10px;
+    background-position: 0 0, 0 100%, 0 0, 100% 0;
+    animation: borderMove 0.3s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes borderMove {
+    0% {
+        background-position:
+            0 0, 0 100%, 0 0, 100% 0;
+    }
+    100% {
+        background-position:
+            10px 0, -10px 100%, 0 -10px, 100% 10px;
+    }
+}
+
+#drop-zone:hover {
+    background-color: #e4eaee;
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.compression-menu {
+    position: fixed;
+    top: 0;
+    right: -600px;
+    width: 400px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: right 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.compression-menu h3 {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.compression-option {
+    color: white;
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #008cff;
+    border-radius: 8px;
+    width: 70%;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.3s ease, border 0.3s ease, padding 0.3s ease;
+}
+
+.compression-option:hover {
+    background-color: #115cce;
+    transition: border 0.2s ease;
+    padding: 14px;
+    transition: padding 0.3s ease;
+}
+
+.compression-option.selected {
+    background-color: #115cce; 
+    font-weight: bold;
+    transition: border 0.2s ease; 
+    padding: 14px;
+    transition: padding 0.3s ease;
+}
+
+.compression-info {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 390px;
+    padding: 0 40px;
+  }
+  
+  .info-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .info-title {
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 1rem;
+  }
+  
+  .info-desc {
+    width: 180px;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 0.9rem;
+    box-sizing: border-box; 
+}
+  
+
+#start-compression {
+    background: #198754;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#start-compression:hover {
+    background: #146c43;
+}
+
+#start-compression:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#compress-btn {
+    z-index: 1100;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    margin-bottom: 5px;
+}
+
+.close-btn:hover {
+    color: #ff0000;
+}
+
+.error-message {
+    display: none;
+    background-color: #f44336;
+    color: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    animation: slide-in 0.5s ease-out;
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+#pdf-preview-container {
+  max-width: 400px;   /* ou 100% para responsivo */
+  margin: 0 auto;
+}
+
+#pdf-canvas {
+  width: 100%;         /* canvas ocupa toda a largura da div */
+  height: auto;        /* altura automática proporcional */
+  display: block;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #666;
+    font-size: 14px;
+}
